@@ -33,25 +33,27 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <th
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                                                /argon/
-                                            </th>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                4,569
-                                            </td>
-                                            <td
-                                                class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                340
-                                            </td>
-                                            <td
-                                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                46,53%
-                                            </td>
-                                        </tr>
+                                        @foreach ($dataKehadiran as $kehadiran)
+                                            <tr>
+                                                <th
+                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                                                    {{ $kehadiran->name }}
+                                                </th>
+                                                <td
+                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                                                    {{ $kehadiran->uid }}
+                                                </td>
+                                                <td
+                                                    class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                    {{ $kehadiran->jabatan }}
+                                                </td>
+                                                <td
+                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                    <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                                                    {{ $kehadiran->created_at }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
