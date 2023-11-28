@@ -8,13 +8,15 @@
     {{-- Tailwind Style --}}
     @vite('resources/css/app.css')
 
-    <title>Dashboard</title>
+    <title>{{ $title }}</title>
 </head>
 
 <body class="bg-main">
     @include('partials.navbar')
 
     @yield('container')
+
+    <script src="{{ asset('../node_modules/flowbite/dist/flowbite.min.js') }}"></script>
 </body>
 
 </html>

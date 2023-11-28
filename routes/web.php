@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [KehadiranController::class, 'index']);
 
 Route::get('/karyawan', [KaryawanController::class, 'index']);
+Route::get('/karyawan/create', [KaryawanController::class, 'create']);
+Route::post('/karyawan/create', [KaryawanController::class, 'store']);
