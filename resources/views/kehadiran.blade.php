@@ -3,7 +3,36 @@
 @section('container')
     <div class="mx-[93px]">
         <div class=" mx-auto px-12 w-fit bg-primary rounded-lg my-6">
-            <h1 class="font-bold text-2xl text-white text-center py-6">Daftar Kehadiran</h1>
+            <h1 class="font-bold text-2xl text-white text-center py-4">Daftar Kehadiran</h1>
+
+            {{-- Searching --}}
+            <form class="mb-4" method="get" action="/">
+                <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Cari</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </div>
+                    <input type="text" id="search" name="search" value="{{ request('search') }}"
+                        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Cari berdasarkan nama">
+                    <button type="submit"
+                        class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Cari</button>
+                </div>
+            </form>
+
+            <div class="flex items-center flex-wrap gap-2 mb-4">
+                <h3 class="font-semibold text-white">Sortir : </h3>
+                <form action="/" method="get">
+                    <button name="sort" value="asc"
+                        class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Terlama</button>
+                    <button name="sort" value="desc"
+                        class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Terbaru</button>
+                </form>
+            </div>
 
             <div class="flex justify-center items-center">
                 <section>
@@ -49,8 +78,7 @@
                                                 </td>
                                                 <td
                                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    {{ $kehadiran->created_at }}
+                                                    {{ date('m-d-Y H:i', strtotime($kehadiran->created_at)) }}
                                                 </td>
                                             </tr>
                                         @endforeach
