@@ -62,26 +62,35 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($dataKehadiran as $kehadiran)
+                                        @if (count($dataKehadiran) > 0)
+                                            @foreach ($dataKehadiran as $kehadiran)
+                                                <tr>
+                                                    <th
+                                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                                                        {{ $kehadiran->name }}
+                                                    </th>
+                                                    <td
+                                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                                                        {{ $kehadiran->uid }}
+                                                    </td>
+                                                    <td
+                                                        class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                        {{ $kehadiran->jabatan }}
+                                                    </td>
+                                                    <td
+                                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                        {{ date('m-d-Y H:i', strtotime($kehadiran->created_at)) }}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
                                             <tr>
-                                                <th
+                                                <th colspan="4"
                                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                                                    {{ $kehadiran->name }}
+                                                    Data tidak ditemukan
                                                 </th>
-                                                <td
-                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                    {{ $kehadiran->uid }}
-                                                </td>
-                                                <td
-                                                    class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    {{ $kehadiran->jabatan }}
-                                                </td>
-                                                <td
-                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    {{ date('m-d-Y H:i', strtotime($kehadiran->created_at)) }}
-                                                </td>
                                             </tr>
-                                        @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
