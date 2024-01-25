@@ -20,9 +20,11 @@ class ApiController extends Controller
                 'uid' => $dataKaryawan->uid,
                 'jabatan' => $dataKaryawan->jabatan,
             ]);
+            return response()->json(['response' => 'OK']);
+        } else {
+            return response()->json(['response' => 'No OK']);
         }
         
-        return response()->json($dataAbsensi['uid']);
     }
 
     public function indexDataAbsensi() {
