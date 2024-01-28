@@ -15,4 +15,9 @@ class KehadiranController extends Controller
             'dataKehadiran' => Kehadiran::filter(request(['search', 'sort']))->paginate(25)->withQueryString()
         ]);
     }
+
+    public function destroy() {
+        $dataKehadiran = Kehadiran::truncate();
+        return redirect('/')->with('success', 'Daftar kehadiran berhasil dihapus');
+    }
 }

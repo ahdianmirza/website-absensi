@@ -2,6 +2,21 @@
 
 @section('container')
     <div class="mx-[93px]">
+        @if (session()->has('success'))
+            <div class="flex items-center p-4 my-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+                role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium">{{ session('success') }}</span>
+                </div>
+            </div>
+        @endif
+
         <div class=" mx-auto w-full px-10 bg-primary rounded-lg my-6">
             <h1 class="font-bold text-2xl text-white text-center py-4">Daftar Kehadiran</h1>
 
@@ -24,20 +39,31 @@
                 </div>
             </form>
 
-            <div class="flex items-center flex-wrap gap-2 mb-4">
-                <h3 class="font-semibold text-white">Sortir : </h3>
-                <form action="/" method="get">
-                    <button name="sort" value="asc"
-                        class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Terlama</button>
-                    <button name="sort" value="desc"
-                        class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Terbaru</button>
-                </form>
+            <div class="flex justify-between items-center flex-wrap mb-4">
+                <div class="flex gap-2 items-center">
+                    <h3 class="font-semibold text-white">Sortir : </h3>
+                    <form action="/" method="get">
+                        <button name="sort" value="asc"
+                            class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Terlama</button>
+                        <button name="sort" value="desc"
+                            class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Terbaru</button>
+                    </form>
+                </div>
+                @if (count($dataKehadiran) > 0)
+                    <form action="/kehadiran/destroy" method="post">
+                        @method('delete')
+                        @csrf
+                        <button
+                            class="self-end px-3 py-2 text-sm font-medium text-center rounded-lg focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300">Hapus
+                            Kehadiran</button>
+                    </form>
+                @endif
             </div>
 
             <div class="flex justify-center items-center">
                 <section class="w-full">
                     <div class="w-full">
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded ">
                             <div class="w-full h-[400px] overflow-x-auto overflow-y-scroll rounded-t">
                                 <table class="items-center bg-transparent w-full border-collapse overflow-y-auto">
                                     <thead>
@@ -94,6 +120,10 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+
+                        <div class="my-4">
+                            {{ $dataKehadiran->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </section>

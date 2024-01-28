@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\DataKehadiran;
 use App\Models\Karyawan;
 use App\Models\Kehadiran;
 use Illuminate\Http\Request;
@@ -23,6 +24,11 @@ class ApiController extends Controller
 
         if ($dataKaryawan) {
             Kehadiran::create([
+                'name' => $dataKaryawan->name,
+                'uid' => $dataKaryawan->uid,
+                'jabatan' => $dataKaryawan->jabatan,
+            ]);
+            DataKehadiran::create([
                 'name' => $dataKaryawan->name,
                 'uid' => $dataKaryawan->uid,
                 'jabatan' => $dataKaryawan->jabatan,

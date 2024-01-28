@@ -17,7 +17,7 @@
             </div>
         @endif
         <div class="mx-auto px-12 w-full bg-primary rounded-lg my-6">
-            <div class="flex items-center pt-6 space-x-2">
+            <div class="flex items-center space-x-2 pt-6">
                 <a href="/karyawan"
                     class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <span class="text-white">
@@ -31,34 +31,34 @@
                         </svg>
                     </span>
                 </a>
-
-                <h1 class="font-bold text-2xl text-white">Tambah Daftar Karyawan</h1>
+                <h1 class="font-bold text-2xl text-white">Edit Karyawan</h1>
             </div>
 
             <div class="flex justify-center items-center py-6">
-                <form class="w-full" name="formKaryawan" action="/karyawan/create" method="post">
+                <form class="w-full" name="formKaryawan" action="/karyawan/{{ $editKaryawan->id }}/update" method="post">
+                    @method('put')
                     @csrf
                     <div class="mb-5">
                         <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Nama</label>
-                        <input type="text" id="name" name="name"
+                        <input type="text" id="name" name="name" value="{{ $editKaryawan->name }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukkan nama" required>
+                            placeholder="Masukkan nama" autofocus required>
                     </div>
                     <div class="mb-5">
                         <label for="uid" class="block mb-2 text-sm font-medium text-white dark:text-white">UID</label>
-                        <input type="text" id="uid" name="uid"
+                        <input type="text" id="uid" name="uid" value="{{ $editKaryawan->uid }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukkan UID" required>
                     </div>
                     <div class="mb-5">
                         <label for="jabatan"
                             class="block mb-2 text-sm font-medium text-white dark:text-white">Jabatan</label>
-                        <input type="text" id="jabatan" name="jabatan"
+                        <input type="text" id="jabatan" name="jabatan" value="{{ $editKaryawan->jabatan }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukkan jabatan" required>
                     </div>
                     <button type="submit"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</button>
                 </form>
             </div>
         </div>
