@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="mx-[93px]">
-        <div class=" mx-auto px-12 w-fit bg-primary rounded-lg my-6">
+        <div class=" mx-auto w-full px-10 bg-primary rounded-lg my-6">
             <h1 class="font-bold text-2xl text-white text-center py-4">Daftar Kehadiran</h1>
 
             {{-- Searching --}}
@@ -35,7 +35,7 @@
             </div>
 
             <div class="flex justify-center items-center">
-                <section>
+                <section class="w-full">
                     <div class="w-full">
                         <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
                             <div class="w-full h-[400px] overflow-x-auto overflow-y-scroll rounded-t">
@@ -85,10 +85,10 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <th colspan="4"
-                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                                                <td colspan="4"
+                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-red-500 font-semibold">
                                                     Data tidak ditemukan
-                                                </th>
+                                                </td>
                                             </tr>
                                         @endif
                                     </tbody>

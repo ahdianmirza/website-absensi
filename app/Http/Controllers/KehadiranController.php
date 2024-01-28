@@ -12,7 +12,7 @@ class KehadiranController extends Controller
     public function index() {
         return view('kehadiran', [
             'title' => 'Dashboard',
-            'dataKehadiran' => Kehadiran::filter(request(['search', 'sort']))->paginate(10)->withQueryString()
+            'dataKehadiran' => Kehadiran::filter(request(['search', 'sort']))->paginate(25)->withQueryString()
         ]);
     }
 }

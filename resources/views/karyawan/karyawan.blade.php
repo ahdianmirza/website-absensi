@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="mx-[93px]">
-        <div class="mx-auto px-12 w-1/2 bg-primary rounded-lg my-6">
+        <div class="mx-auto w-full px-12 bg-primary rounded-lg my-6">
             <div class="w-full flex justify-between items-center py-6">
                 <h1 class="font-bold text-2xl text-white text-center">Daftar Karyawan</h1>
                 <a href="/karyawan/create"
@@ -33,22 +33,31 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($dataKaryawan as $karyawan)
+                                        @if (count($dataKaryawan) > 0)
+                                            @foreach ($dataKaryawan as $karyawan)
+                                                <tr>
+                                                    <th
+                                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                                                        {{ $karyawan->name }}
+                                                    </th>
+                                                    <td
+                                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                                                        {{ $karyawan->uid }}
+                                                    </td>
+                                                    <td
+                                                        class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                                        {{ $karyawan->jabatan }}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
                                             <tr>
-                                                <th
-                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                                                    {{ $karyawan->name }}
-                                                </th>
-                                                <td
-                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                    {{ $karyawan->uid }}
-                                                </td>
-                                                <td
-                                                    class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    {{ $karyawan->jabatan }}
+                                                <td colspan="3"
+                                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-red-500 font-semibold">
+                                                    Data tidak ditemukan
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

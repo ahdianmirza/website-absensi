@@ -9,10 +9,17 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function dataAbsensi() {
-        $dataAbsensi = request()->all();
+    public function dataAbsensi(Request $request) {
+        $dataAbsensi = $request->all();
         $uid = $dataAbsensi['uid'];
         $dataKaryawan = Karyawan::firstWhere('uid', $uid);
+        $dataKehadiran = Kehadiran::firstWhere('uid', $uid);
+
+        if ($dataKehadiran) {
+            if ($dataKehadiran['uid'] == $uid) {
+                return response()->json('Duplicate');
+            }
+        }
 
         if ($dataKaryawan) {
             Kehadiran::create([
@@ -20,11 +27,10 @@ class ApiController extends Controller
                 'uid' => $dataKaryawan->uid,
                 'jabatan' => $dataKaryawan->jabatan,
             ]);
-            return response()->json(['response' => 'OK']);
+            return response()->json('OK');
         } else {
-            return response()->json(['response' => 'No OK']);
+            return response()->json('Failed');
         }
-        
     }
 
     public function indexDataAbsensi() {
