@@ -16,7 +16,7 @@
 
     @yield('container')
 
-    <script src="{{ asset('../node_modules/flowbite/dist/flowbite.min.js') }}"></script>
+    {{-- <script src="{{ asset('../node_modules/flowbite/dist/flowbite.min.js') }}"></script> --}}
 </body>
 
 </html>
