@@ -30,4 +30,8 @@ Route::get('/karyawan/{id}/edit', [KaryawanController::class, 'edit'])->middlewa
 Route::put('/karyawan/{id}/update', [KaryawanController::class, 'update']);
 Route::delete('/karyawan/destroy/{id}', [KaryawanController::class, 'destroy'])->name('destroy.karyawan');
 Route::get('/data-kehadiran', [DataKehadiranController::class, 'index'])->middleware('auth');
+Route::get('/data-kehadiran/table', [DataKehadiranController::class, 'tableDataKehadiran'])->middleware('auth');
 Route::delete('/kehadiran/destroy', [KehadiranController::class, 'destroy'])->name('destroy.kehadiran');
+
+// Export Excel
+Route::get('/data-kehadiran/export', [DataKehadiranController::class, 'export_excel']);

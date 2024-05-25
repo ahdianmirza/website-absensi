@@ -6,7 +6,7 @@
             <h1 class="font-bold text-2xl text-white text-center py-4">Data Kehadiran</h1>
 
             {{-- Searching --}}
-            <form class="mb-4" method="get" action="/data-kehadiran">
+            <form class="mb-8" method="get" action="/data-kehadiran">
                 <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Cari</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -24,14 +24,22 @@
                 </div>
             </form>
 
-            <div class="flex items-center flex-wrap gap-2 mb-4">
-                <h3 class="font-semibold text-white">Sortir : </h3>
-                <form action="/data-kehadiran" method="get">
-                    <button name="sort" value="asc"
-                        class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Terlama</button>
-                    <button name="sort" value="desc"
-                        class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Terbaru</button>
-                </form>
+            <div class="flex justify-between mb-4">
+                <div class="flex items-center flex-wrap gap-2">
+                    <h3 class="font-semibold text-white">Sortir : </h3>
+                    <form action="/data-kehadiran" method="get">
+                        <button name="sort" value="asc"
+                            class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Terlama</button>
+                        <button name="sort" value="desc"
+                            class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Terbaru</button>
+                    </form>
+                </div>
+                <div>
+                    <a href="{{ url('/data-kehadiran/export') }}"
+                        class="px-4 py-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        Export
+                    </a>
+                </div>
             </div>
 
             <div class="flex justify-center items-center">
