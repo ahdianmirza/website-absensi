@@ -39,7 +39,7 @@
                 </div>
             </form>
 
-            <div class="flex justify-between items-center flex-wrap mb-4">
+            <div class="flex justify-between items-center flex-wrap gap-3 mb-4">
                 <div class="flex gap-2 items-center">
                     <h3 class="font-semibold text-white">Sortir : </h3>
                     <form action="/" method="get">
