@@ -6,6 +6,9 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.24.6",
+        "@babel/preset-env": "^7.24.6",
+        "@rollup/plugin-commonjs": "^25.0.8",
         "autoprefixer": "^10.4.16",
         "axios": "^1.6.1",
         "laravel-mix": "^6.0.49",
