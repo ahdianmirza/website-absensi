@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('container')
-    <div class="mx-[93px]">
+    <div class="mx-4 md:mx-14">
         @if (session()->has('success'))
             <div class="flex items-center p-4 my-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                 role="alert">
@@ -17,11 +17,11 @@
             </div>
         @endif
 
-        <div class="mx-auto w-full px-12 bg-primary rounded-lg my-6">
+        <div class="mx-auto w-full px-5 lg:px-10 bg-primary rounded-lg my-6">
             <div class="w-full flex justify-between items-center py-6">
-                <h1 class="font-bold text-2xl text-white text-center">Daftar Karyawan</h1>
+                <h1 class="font-bold text-xl lg:text-2xl text-white text-center">Daftar Karyawan</h1>
                 <a href="/karyawan/create"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</a>
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-3 lg:px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</a>
             </div>
 
             <div class="flex justify-center items-center">

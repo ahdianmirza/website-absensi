@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('container')
-    <div class="mx-[93px]">
+    <div class="mx-4 md:mx-14">
         @if (session()->has('success'))
             <div class="flex items-center p-4 my-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                 role="alert">
@@ -16,7 +16,7 @@
                 </div>
             </div>
         @endif
-        <div class="mx-auto px-12 w-full bg-primary rounded-lg my-6">
+        <div class="mx-auto px-5 lg:px-10 w-full bg-primary rounded-lg my-6">
             <div class="flex items-center pt-6 space-x-2">
                 <a href="/karyawan"
                     class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -32,7 +32,7 @@
                     </span>
                 </a>
 
-                <h1 class="font-bold text-2xl text-white">Tambah Daftar Karyawan</h1>
+                <h1 class="font-bold lg:text-2xl text-white">Tambah Daftar Karyawan</h1>
             </div>
 
             <div class="flex justify-center items-center py-6">

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- Tailwind Style --}}
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite('node_modules/flowbite/dist/flowbite.css')
 
     <title>{{ $title }}</title>
 </head>
@@ -16,7 +17,7 @@
 
     @yield('container')
 
-    {{-- <script src="{{ asset('../node_modules/flowbite/dist/flowbite.min.js') }}"></script> --}}
+    @vite('node_modules/flowbite/dist/flowbite.js')
 </body>
 
 </html>
